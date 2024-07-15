@@ -1,0 +1,159 @@
+@import 'variables';
+
+// Base Styles
+body {
+  font-family: $font-secondary;
+  line-height: $line-height-regular;
+  color: $color-highlight-dark;
+  background-color: $color-white;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-primary;
+  font-weight: medium;
+  font-size: $font-size-large;
+}
+
+p {
+  font-family: $font-secondary;
+  font-size: calc($font-size-large * 0.65);
+  line-height: $line-height-regular;
+}
+
+// Typography
+.sub-title {
+  font-size: $font-size-large;
+  font-family: $font-secondary;
+}
+
+.lead-text {
+  font-size: $font-size-medium;
+  font-family: $font-secondary;
+  font-weight: medium;
+}
+
+.card-title {
+  font-size: 18pt;
+  font-family: $font-secondary;
+  font-weight: bold;
+}
+
+.card-paragraph {
+  font-size: $font-size-regular;
+  line-height: $line-height-regular;
+  max-width: 65ch;
+}
+
+.highlight-text {
+  font-size: $font-size-medium;
+  font-family: $font-secondary;
+}
+
+// Colors
+.primary {
+  color: $color-primary;
+}
+
+.secondary-main {
+  color: $color-secondary-main;
+}
+
+.secondary-1 {
+  color: $color-secondary-1;
+}
+
+.secondary-2 {
+  color: $color-secondary-2;
+}
+
+.highlight-light {
+  color: $color-highlight-light;
+}
+
+.highlight-dark {
+  color: $color-highlight-dark;
+}
+
+.background-primary {
+  background-color: $color-primary;
+}
+
+.background-secondary-main {
+  background-color: $color-secondary-main;
+}
+
+.background-secondary-1 {
+  background-color: $color-secondary-1;
+}
+
+.background-secondary-2 {
+  background-color: $color-secondary-2;
+}
+
+.background-highlight-light {
+  background-color: $color-highlight-light;
+}
+
+.background-highlight-dark {
+  background-color: $color-highlight-dark;
+}
+
+.background-white {
+  background-color: $color-white;
+}
+
+// Rounded Corners
+.rounded {
+  border-radius: $border-radius;
+}
+
+// Buttons
+.button {
+  font-family: $font-secondary;
+  font-size: $font-size-medium;
+  border-radius: $border-radius;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &.primary {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  &.secondary {
+    background-color: $color-secondary-main;
+    color: $color-highlight-dark;
+  }
+}
+
+// Card
+.card {
+  background-color: $color-highlight-light;
+  border-radius: $border-radius;
+  padding: 20px;
+
+  &-title {
+    font-family: $font-secondary;
+    font-size: 18pt;
+    font-weight: bold;
+  }
+
+  &-text {
+    font-family: $font-secondary;
+    font-size: $font-size-regular;
+    line-height: $line-height-regular;
+    max-width: 65ch; // Limits characters per line to approximately 65
+  }
+}
+
+// Images
+img {
+  border-radius: $border-radius;
+}
