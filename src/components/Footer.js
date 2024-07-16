@@ -2,7 +2,7 @@ function Footer() {
   return (
     <footer>
       <section>
-        <img src="images/logo.svg" alt="Company Logo" />
+        <img src="images/logo.svg" alt="Little Lemon logo" />
       </section>
       <section>
         <nav aria-label="Doormat Navigation">
@@ -35,3 +35,5 @@ function Footer() {
     </footer>
   );
 }
+
+export default Footer;

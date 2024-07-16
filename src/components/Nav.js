@@ -1,17 +1,19 @@
 function Nav() {
   return (
     <nav>
-      <img src="images/Logo.svg"></img>
+      <img src="images/Logo.svg" alt="Little Lemon logo"></img>
       <ul>
         <li>
-          <a href="">Home</a>
-          <a href="">About</a>
-          <a href="">Menu</a>
-          <a href="">Reservations</a>
-          <a href="">Order Online</a>
-          <a href="">Login</a>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#menu">Menu</a>
+          <a href="#reservations">Reservations</a>
+          <a href="#order">Order Online</a>
+          <a href="#login">Login</a>
         </li>
       </ul>
     </nav>
   );
 }
+
+export default Nav;
