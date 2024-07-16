@@ -13,9 +13,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "local": "./node_modules/.bin/nodemon -L --ignore public/",
-    "build": "react-scripts build",
+    "start": "concurrently \"vite\" \"nodemon -L --ignore public/\"",
+    "build": "vite build",
+    "server": "nodemon -L --ignore public/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,6 +39,8 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "nodemon": "^3.1.4"
+    "@vitejs/plugin-react": "^4.3.1",
+    "nodemon": "^3.1.4",
+    "vite": "^5.3.4"
   }
 }
