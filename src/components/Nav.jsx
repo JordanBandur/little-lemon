@@ -1,6 +1,6 @@
 function Nav() {
   return (
-    <nav>
+    <nav className="header-nav">
       <img src="images/Logo.svg" alt="Little Lemon logo"></img>
       <ul>
         <li>

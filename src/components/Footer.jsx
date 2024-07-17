@@ -2,7 +2,7 @@ function Footer() {
   return (
     <footer>
       <section>
-        <img src="images/logo.svg" alt="Little Lemon logo" />
+        <img src="images/Logo.svg" alt="Little Lemon logo" />
       </section>
       <section>
         <nav aria-label="Doormat Navigation">
