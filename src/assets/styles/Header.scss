@@ -1,0 +1,21 @@
+@import './variables';
+
+.header-nav {
+  display: flex;
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+    color: $color-highlight-dark;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: lighten($color-highlight-dark, 30%);
+    }
+  }
+
+  li {
+    list-style: none;
+  }
+}
