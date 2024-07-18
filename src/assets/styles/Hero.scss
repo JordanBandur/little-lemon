@@ -1,0 +1,57 @@
+@import './variables';
+
+.hero {
+  display: flex;
+  align-items: center;
+  background-color: $color-primary;
+  color: $color-white;
+  height: 260px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .hero-content {
+
+    h1 {
+      color: $color-secondary-main;
+      margin: 0;
+      margin-bottom: 10px;
+      line-height: .5;
+    }
+
+    h2 {
+      color: $color-white;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: $font-size-regular;
+      margin: 0;
+    }
+
+    .button {
+      margin-top: 20px;
+      background-color: $color-secondary-main;
+      color: $color-highlight-dark;
+      padding: 10px 20px;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($color-secondary-main, 10%);
+      }
+    }
+  }
+
+  .hero-image {
+    padding-top: 4em;
+
+    img {
+      width: 240px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: $border-radius;
+    }
+  }
+}
