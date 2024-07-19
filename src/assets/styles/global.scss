@@ -3,28 +3,35 @@
 // Base Styles
 body {
   font-family: $font-secondary;
-  line-height: $line-height-regular;
   color: $color-highlight-dark;
   background-color: $color-white;
   margin: 0;
   padding: 0;
 }
 
-h1,
+.container {
+  padding: 1em 3em;
+}
+
+h1 {
+  font-family: $font-primary;
+  font-weight: medium;
+  font-size: $font-size-large;
+}
+
 h2,
 h3,
 h4,
 h5,
 h6 {
   font-family: $font-primary;
-  font-weight: medium;
-  font-size: $font-size-large;
+  font-weight: normal;
+  font-size: calc($font-size-large * 0.65);
 }
 
 p {
   font-family: $font-secondary;
-  font-size: calc($font-size-large * 0.65);
-  line-height: $line-height-regular;
+  font-size: $font-size-small;
 }
 
 // Typography
@@ -119,17 +126,28 @@ p {
   font-family: $font-secondary;
   font-size: $font-size-medium;
   border-radius: $border-radius;
+  height: 50px;
   padding: 10px 20px;
   cursor: pointer;
+  border: none;
 
   &.primary {
     background-color: $color-primary;
     color: $color-white;
+
+    &:hover {
+      background-color: darken($color-primary, 10%);
+    }
+
   }
 
   &.secondary {
     background-color: $color-secondary-main;
     color: $color-highlight-dark;
+
+    &:hover {
+      background-color: darken($color-secondary-main, 10%);
+    }
   }
 }
 
