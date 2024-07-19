@@ -3,10 +3,12 @@
 .hero {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: $color-primary;
   color: $color-white;
   height: 260px;
   padding: 20px;
+  gap: 14em;
   box-sizing: border-box;
 
   .hero-content {
@@ -14,7 +16,6 @@
     h1 {
       color: $color-secondary-main;
       margin: 0;
-      margin-bottom: 10px;
       line-height: .5;
     }
 
@@ -27,20 +28,11 @@
     p {
       font-size: $font-size-regular;
       margin: 0;
+      max-width: 30ch;
     }
 
     .button {
       margin-top: 20px;
-      background-color: $color-secondary-main;
-      color: $color-highlight-dark;
-      padding: 10px 20px;
-      border: none;
-      border-radius: $border-radius;
-      cursor: pointer;
-
-      &:hover {
-        background-color: darken($color-secondary-main, 10%);
-      }
     }
   }
 
@@ -48,7 +40,7 @@
     padding-top: 4em;
 
     img {
-      width: 240px;
+      width: 260px;
       height: 280px;
       object-fit: cover;
       border-radius: $border-radius;
