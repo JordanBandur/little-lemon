@@ -12,6 +12,7 @@
 
     &:hover {
       color: lighten($color-highlight-dark, 30%);
+      text-decoration: underline;
     }
   }
 
