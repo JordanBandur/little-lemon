@@ -6,8 +6,8 @@ const Highlights = () => {
   return (
     <section className="highlights">
       <div className='highlights-title'>
-        <h2>Specials</h2>
-        <button className="button secondary">Reserve a Table</button>
+        <h1>This weeks specials!</h1>
+        <button className="button secondary">Online Menu</button>
       </div>
       <div className="specials">
         <article className="card">
@@ -21,8 +21,8 @@ const Highlights = () => {
             </div>
             <p>The famous greek salad of crispy lettuce, peppers, olives, and our Chiago style feta cheese, garnished with crunchy garlic and rosemary crutons.</p>
             <button className="order-button">
-              <img src={deliveryIcon} alt="Delivery Truck" className="button-icon" />
               Order a delivery
+              <img src={deliveryIcon} alt="Delivery Truck" className="button-icon" />
             </button>
           </div>
         </article>
@@ -37,8 +37,8 @@ const Highlights = () => {
             </div>
             <p>Our bruchetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.</p>
             <button className="order-button">
-              <img src={deliveryIcon} alt="Delivery Truck" className="button-icon" />
               Order a delivery
+              <img src={deliveryIcon} alt="Delivery Truck" className="button-icon" />
             </button>
           </div>
         </article>
@@ -53,7 +53,7 @@ const Highlights = () => {
             </div>
             <p>This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be.</p>
             <button className="order-button">
-              Online Menu
+              Order a delivery
               <img src={deliveryIcon} alt="Delivery Truck" className="button-icon" />
             </button>
           </div>
