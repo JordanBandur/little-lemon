@@ -1,12 +1,61 @@
 @import './variables';
 
 .about {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em auto;
+  padding: 2em;
+  max-width: 850px;
+  gap: 2em;
 
-  img {
-    width: 100%;
-    max-width: 600px;
-    border-radius: $border-radius;
-    margin-top: 20px;
+  .about-text {
+    flex: 1;
+    text-align: left;
+
+    h1 {
+      font-size: $font-size-large;
+      color: $color-primary;
+      margin-bottom: 0;
+      line-height: 0;
+    }
+
+    h2 {
+      font-size: $font-size-medium;
+      color: $color-secondary-main;
+      margin-bottom: 1em;
+    }
+
+    p {
+      font-size: $font-size-regular;
+      color: $color-highlight-dark;
+    }
+  }
+
+  .about-images {
+    flex: 1;
+    position: relative;
+
+    .image1 {
+      width: 70%;
+      border-radius: $border-radius;
+      position: relative;
+      z-index: 1;
+      height: 350px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(51, 51, 51, 0.2);
+    }
+
+    .image2 {
+      width: 70%;
+      border-radius: $border-radius;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      z-index: 0;
+      box-shadow: 0 4px 8px rgba(51, 51, 51, 0.2);
+      height: 350px;
+      object-fit: cover;
+    }
   }
 }
