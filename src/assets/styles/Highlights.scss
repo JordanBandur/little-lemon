@@ -47,16 +47,6 @@
         }
       }
 
-      .card-title {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-
-        p {
-          flex-grow: 0;
-        }
-      }
-
       .card-text {
         margin-top: 10px;
         display: flex;
@@ -71,6 +61,17 @@
         p {
           font-size: $font-size-regular;
           flex-grow: 1;
+        }
+
+        .card-title {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+
+          p {
+            flex-grow: 0;
+            color: $color-secondary-1;
+          }
         }
 
         .order-button {
