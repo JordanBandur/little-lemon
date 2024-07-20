@@ -12,11 +12,10 @@
   box-sizing: border-box;
 
   .hero-content {
-
     h1 {
       color: $color-secondary-main;
       margin: 0;
-      line-height: .5;
+      line-height: 0.5;
     }
 
     h2 {
@@ -37,13 +36,72 @@
   }
 
   .hero-image {
-    padding-top: 4em;
-
     img {
       width: 260px;
       height: 280px;
       object-fit: cover;
       border-radius: $border-radius;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    gap: 2em;
+
+    .hero-content {
+      text-align: center;
+
+      h1 {
+        font-size: calc($font-size-large * 0.8);
+      }
+
+      h2 {
+        font-size: calc($font-size-medium * 0.8);
+        margin-top: 5px;
+      }
+
+      p {
+        font-size: calc($font-size-regular * 0.8);
+      }
+
+      .button {
+        font-size: calc($font-size-medium * 0.8);
+        width: 100%; // Make button full width on smaller screens
+      }
+
+      .hero-image {
+        display: block;
+        margin: 20px 0;
+
+        img {
+          width: 100%;
+          height: auto;
+          padding-top: 4em;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    h1 {
+      font-size: calc($font-size-large * 0.6);
+    }
+
+    h2 {
+      font-size: calc($font-size-medium * 0.6);
+    }
+
+    p {
+      font-size: calc($font-size-regular * 0.7);
+    }
+
+    .button {
+      font-size: calc($font-size-medium * 0.7);
     }
   }
 }
