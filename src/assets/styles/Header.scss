@@ -3,20 +3,70 @@
 .header-nav {
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: $color-white;
 
-  a {
-    text-decoration: none;
-    color: $color-highlight-dark;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: lighten($color-highlight-dark, 30%);
-      text-decoration: underline;
-    }
+  .logo {
+    height: 50px;
   }
 
-  li {
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: flex;
     list-style: none;
+    font-weight: bold;
+
+    li {
+      margin: 0 10px;
+
+      a {
+        text-decoration: none;
+        color: $color-highlight-dark;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: lighten($color-highlight-dark, 30%);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header-nav {
+    justify-content: space-between;
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      background-color: $color-white;
+      width: 100%;
+      text-align: right;
+      padding: 1em 2em;
+
+      &.open {
+        display: flex;
+      }
+
+      li {
+        margin: 1em 0;
+      }
+    }
   }
 }
