@@ -175,3 +175,9 @@ p {
 img {
   border-radius: $border-radius;
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+}
