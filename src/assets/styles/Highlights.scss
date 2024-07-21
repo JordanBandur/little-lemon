@@ -1,7 +1,6 @@
 @import './variables';
 
 .highlights {
-
   .highlights-title {
     display: flex;
     align-items: center;
@@ -10,6 +9,14 @@
     max-width: 850px;
     margin-left: auto;
     margin-right: auto;
+
+    h1 {
+      font-size: $font-size-large;
+    }
+
+    .button {
+      font-size: $font-size-medium;
+    }
   }
 
   .specials {
@@ -25,12 +32,10 @@
       justify-content: space-around;
       padding: 0;
       margin: 0;
-      width: 264px;
-      height: auto;
       border-radius: $border-radius;
       background-color: $color-highlight-light;
       text-align: center;
-      box-shadow: 0 4px 8px rgba($color-highlight-dark, 0.2);
+      box-shadow: 0 4px 8px rgba($color-highlight-dark, 0.3);
 
       figure {
         margin: 0;
@@ -53,6 +58,7 @@
         flex-direction: column;
         justify-content: space-between;
         flex-grow: 1;
+        padding: 0 10px 10px 10px;
 
         h3 {
           font-size: $font-size-medium;
@@ -65,7 +71,7 @@
 
         .card-title {
           display: flex;
-          justify-content: space-around;
+          justify-content: space-between;
           align-items: center;
 
           p {
@@ -76,7 +82,7 @@
 
         .order-button {
           background: none;
-          color: $color-highlight-dark ;
+          color: $color-highlight-dark;
           border: none;
           padding: 10px;
           cursor: pointer;
@@ -90,6 +96,71 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .highlights-title {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    h1 {
+      font-size: $font-size-medium;
+    }
+
+    .button {
+      font-size: $font-size-small;
+      margin-top: 10px;
+      margin-bottom: 2em;
+      width: 100%;
+    }
+  }
+
+  .specials {
+    grid-template-columns: 1fr;
+
+    .card {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .highlights-title {
+    h1 {
+      font-size: calc($font-size-large * 0.7);
+    }
+
+    .button {
+      font-size: calc($font-size-medium * 0.7);
+    }
+  }
+
+  .specials {
+    gap: 20px;
+  }
+
+  .card {
+    .card-text {
+      h3 {
+        font-size: calc($font-size-medium * 0.8);
+      }
+
+      p {
+        font-size: calc($font-size-regular * 0.8);
+      }
+
+      .order-button {
+        font-size: calc($font-size-regular * 0.8);
+      }
+    }
+  }
+
+  .card {
+    & {
+      cursor: pointer;
     }
   }
 }
