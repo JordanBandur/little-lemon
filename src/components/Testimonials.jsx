@@ -1,5 +1,8 @@
 import React from 'react';
 import '../assets/styles/Testimonials.scss';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import deliveryIcon from '../assets/delivery-logo.svg';
 
 const getRandomRating = () => Math.floor(3 + Math.random() * 3);
 
@@ -47,23 +50,25 @@ const Testimonials = () => {
     <section className="testimonials">
       <h2>Testimonials</h2>
       <div className="testimonial-cards">
-        {reviews.map((review, index) => (
-          <article className="testimonial-card" key={index}>
-            <div className="rating">
-              {Array.from({ length: review.rating }).map((_, i) => (
-                <span key={i} className="star">★</span>
-              ))}
-              {Array.from({ length: 5 - review.rating }).map((_, i) => (
-                <span key={i} className="star empty">☆</span>
-              ))}
-            </div>
-            <div className="user-info">
-              <img src={review.photo} alt={review.name} className="user-photo" />
-              <h3>{review.name}</h3>
-            </div>
-            <p>{review.text}</p>
-          </article>
-        ))}
+        <Carousel showThumbs={false} showStatus={false} infiniteLoop useKeyboardArrows autoPlay>
+          {reviews.map((review, index) => (
+            <article className="testimonial-card" key={index}>
+              <div className="rating">
+                {Array.from({ length: review.rating }).map((_, i) => (
+                  <span key={i} className="star">★</span>
+                ))}
+                {Array.from({ length: 5 - review.rating }).map((_, i) => (
+                  <span key={i} className="star empty">☆</span>
+                ))}
+              </div>
+              <div className="user-info">
+                <img src={review.photo} alt={review.name} className="user-photo" />
+                <h3>{review.name}</h3>
+              </div>
+              <p>{review.text}</p>
+            </article>
+          ))}
+        </Carousel>
       </div>
     </section>
   );
