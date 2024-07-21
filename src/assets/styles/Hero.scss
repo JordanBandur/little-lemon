@@ -37,7 +37,7 @@
 
   .hero-image {
     margin-top: 5em;
-    
+
     img {
       width: 260px;
       height: 280px;
@@ -105,5 +105,9 @@
     .button {
       font-size: calc($font-size-medium * 0.7);
     }
+  }
+
+  .hero .hero-image {
+    margin-top: 0;
   }
 }
