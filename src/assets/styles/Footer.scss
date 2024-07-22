@@ -96,5 +96,48 @@
   .footer-copyright {
     grid-column: span 4;
     font-size: $font-size-small;
+    text-align: justify;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    .footer-copyright {
+      grid-column: span 2;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+
+    section {
+      padding: 10px 0;
+    }
+
+    .footer-social ul {
+      justify-content: center;
+    }
+
+    .footer-nav {
+
+      nav ul {
+        font-size: large;
+
+        li {
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    .footer-copyright {
+      grid-column: span 1;
+      text-align: center;
+    }
   }
 }
