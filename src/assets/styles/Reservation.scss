@@ -1,0 +1,51 @@
+@import './variables';
+
+.reservation-page {
+  padding: 2em;
+  max-width: 600px;
+  margin: 0 auto;
+
+  h2 {
+    text-align: center;
+    color: $color-primary;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      margin-bottom: 1em;
+      font-size: $font-size-regular;
+      color: $color-highlight-dark;
+      width: 100%;
+
+      input,
+      select {
+        width: 100%;
+        padding: 0.5em;
+        margin-top: 0.5em;
+        border: 1px solid $color-highlight-dark;
+        border-radius: $border-radius;
+        font-size: $font-size-regular;
+        box-sizing: border-box;
+      }
+    }
+
+    .button {
+      margin-top: 1em;
+      align-self: flex-end;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .reservation-page {
+    margin: 3em auto;
+
+    form .button {
+      align-self: center;
+    }
+  }
+}
