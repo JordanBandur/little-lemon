@@ -29,6 +29,17 @@ h6 {
   font-size: calc($font-size-large * 0.65);
 }
 
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  border: 1px solid $color-highlight-dark;
+  border-radius: $border-radius;
+  font-size: $font-size-regular;
+}
+
 p {
   font-family: $font-secondary;
   font-size: $font-size-small;
