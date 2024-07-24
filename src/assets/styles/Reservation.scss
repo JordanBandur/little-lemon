@@ -10,6 +10,25 @@
     color: $color-primary;
   }
 
+  .error-section {
+    background-color: #ffe5e5;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: $border-radius;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin: 0.5em 0;
+      }
+    }
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -31,6 +50,10 @@
         font-size: $font-size-regular;
         box-sizing: border-box;
         background-color: white;
+
+        &.invalid {
+          border-color: red;
+        }
       }
     }
 
