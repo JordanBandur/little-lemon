@@ -11,10 +11,19 @@ import './assets/styles/global.scss';
 import { initializeTimes, updateTimes } from './hooks/useTimesReducer';
 
 function App() {
-  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+  const [availableTimes, dispatch] = useReducer((state, action) => state, []);
 
-  const handleDateChange = (date) => {
-    dispatch({ type: 'UPDATE_TIMES', payload: date });
+  useEffect(() => {
+    async function fetchInitialTimes() {
+      const initialTimes = await initializeTimes();
+      dispatch({ type: 'INITIALIZE', payload: initialTimes });
+    }
+    fetchInitialTimes();
+  }, []);
+
+  const handleDateChange = async (date) => {
+    const newTimes = await updateTimes([], { type: 'UPDATE_TIMES', payload: date });
+    dispatch({ type: 'UPDATE_TIMES', payload: newTimes });
   };
 
   return (
