@@ -54,6 +54,15 @@ const ReservationPage = () => {
           Number of Guests:
           <input type="number" name="guests" min="1" max="10" required />
         </label>
+        <label>
+          Occasion:
+          <select name="occasion" required>
+            <option value="">Select a occasion</option>
+            <option>Birthday</option>
+            <option>Anniversary</option>
+            <option>No Ocassion</option>
+          </select>
+        </label>
         <button type="submit" className="button primary" disabled={isSubmitting}>
           {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
