@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../assets/styles/Reservation.scss';
 
-const ReservationPage = () => {
+const ReservationPage = ({ availableTimes, dispatch }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
@@ -16,10 +16,10 @@ const ReservationPage = () => {
     }, 2000); // 2 seconds delay to mimic network request
   };
 
-  const times = [
-    '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM',
-    '05:00 PM', '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM'
-  ];
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value;
+    dispatch({ type: 'UPDATE_TIMES', payload: selectedDate });
+  };
 
   return (
     <div className="reservation-page">
@@ -39,13 +39,13 @@ const ReservationPage = () => {
         </label>
         <label>
           Date:
-          <input type="date" name="date" min={today} required />
+          <input type="date" name="date" min={today} required onChange={handleDateChange} />
         </label>
         <label>
           Time:
           <select name="time" required>
             <option value="">Select a time</option>
-            {times.map((time, index) => (
+            {availableTimes.map((time, index) => (
               <option key={index} value={time}>{time}</option>
             ))}
           </select>
@@ -60,7 +60,7 @@ const ReservationPage = () => {
             <option value="">Select a occasion</option>
             <option>Birthday</option>
             <option>Anniversary</option>
-            <option>No Ocassion</option>
+            <option>No Occasion</option>
           </select>
         </label>
         <button type="submit" className="button primary" disabled={isSubmitting}>
