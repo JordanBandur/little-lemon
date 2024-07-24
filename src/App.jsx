@@ -11,7 +11,16 @@ import './assets/styles/global.scss';
 import { initializeTimes, updateTimes } from './hooks/useTimesReducer';
 
 function App() {
-  const [availableTimes, dispatch] = useReducer((state, action) => state, []);
+  const [availableTimes, dispatch] = useReducer((state, action) => {
+    switch (action.type) {
+      case 'INITIALIZE':
+        return action.payload;
+      case 'UPDATE_TIMES':
+        return action.payload;
+      default:
+        return state;
+    }
+  }, []);
 
   useEffect(() => {
     async function fetchInitialTimes() {
