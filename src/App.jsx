@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -13,11 +13,15 @@ import { initializeTimes, updateTimes } from './hooks/useTimesReducer';
 function App() {
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
+  const handleDateChange = (date) => {
+    dispatch({ type: 'UPDATE_TIMES', payload: date });
+  };
+
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/reserve" element={<Reservation availableTimes={availableTimes} dispatch={dispatch} />} />
+        <Route path="/reserve" element={<Reservation availableTimes={availableTimes} onDateChange={handleDateChange} />} />
         <Route path="/" element={
           <section className='container'>
             <Hero />
