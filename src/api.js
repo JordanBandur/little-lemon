@@ -1,3 +1,5 @@
+import { convertTo12HourFormat } from './utils/timeConversion';
+
 const seededRandom = function (seed) {
   var m = 2 ** 35 - 31;
   var a = 185852;
@@ -13,10 +15,10 @@ export const fetchAPI = function (date) {
 
   for (let i = 17; i <= 23; i++) {
     if (random() < 0.5) {
-      result.push(i + ':00');
+      result.push(convertTo12HourFormat(i + ':00'));
     }
     if (random() < 0.5) {
-      result.push(i + ':30');
+      result.push(convertTo12HourFormat(i + ':30'));
     }
   }
   return result;
