@@ -1,22 +1,41 @@
 import { initializeTimes, updateTimes } from '../useTimesReducer';
+import { fetchAPI } from '../../api';
+
+// Mock the fetchAPI function
+jest.mock('../../api', () => ({
+  fetchAPI: jest.fn(),
+}));
 
 describe('initializeTimes', () => {
-  test('returns the correct initial times', () => {
-    const times = initializeTimes();
+  beforeEach(() => {
+    fetchAPI.mockClear();
+    fetchAPI.mockImplementation(() => Promise.resolve([
+      '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM'
+    ]));
+  });
+
+  test('returns the correct initial times', async () => {
+    const times = await initializeTimes();
     expect(times).toEqual([
-      '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM',
-      '05:00 PM', '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM'
+      '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM'
     ]);
   });
 });
 
 describe('updateTimes', () => {
-  test('returns the same state when no date is provided', () => {
-    const initialState = [
-      '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM',
-      '05:00 PM', '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM'
-    ];
-    const newState = updateTimes(initialState, { type: 'UPDATE_TIMES', payload: '2023-07-22' });
-    expect(newState).toEqual(initialState);
+  beforeEach(() => {
+    fetchAPI.mockClear();
+    fetchAPI.mockImplementation(() => Promise.resolve([
+      '12:00 PM', '12:30 PM', '01:00 PM', '01:30 PM'
+    ]));
+  });
+
+  test('returns the correct times for a given date', async () => {
+    const initialState = [];
+    const action = { type: 'UPDATE_TIMES', payload: '2023-07-22' };
+    const newState = await updateTimes(initialState, action);
+    expect(newState).toEqual([
+      '12:00 PM', '12:30 PM', '01:00 PM', '01:30 PM'
+    ]);
   });
 });
