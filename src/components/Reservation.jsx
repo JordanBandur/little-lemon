@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
 import '../assets/styles/Reservation.scss';
+import { submitAPI } from '../api';
 
-const ReservationPage = ({ availableTimes, dispatch }) => {
+const ReservationPage = ({ availableTimes, onDateChange }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate a network request
-    setTimeout(() => {
+    const formData = new FormData(e.target);
+    const isSuccess = await submitAPI(Object.fromEntries(formData.entries()));
+
+    if (isSuccess) {
       setIsSubmitting(false);
       alert('Reservation submitted successfully!');
-    }, 2000); // 2 seconds delay to mimic network request
+    } else {
+      setIsSubmitting(false);
+      alert('Failed to submit reservation.');
+    }
   };
 
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
-    dispatch({ type: 'UPDATE_TIMES', payload: selectedDate });
+    onDateChange(selectedDate);
   };
 
   return (
@@ -45,7 +51,7 @@ const ReservationPage = ({ availableTimes, dispatch }) => {
           Time:
           <select name="time" required>
             <option value="">Select a time</option>
-            {availableTimes.map((time, index) => (
+            {Array.isArray(availableTimes) && availableTimes.map((time, index) => (
               <option key={index} value={time}>{time}</option>
             ))}
           </select>
@@ -57,7 +63,7 @@ const ReservationPage = ({ availableTimes, dispatch }) => {
         <label>
           Occasion:
           <select name="occasion" required>
-            <option value="">Select a occasion</option>
+            <option value="">Select an occasion</option>
             <option>Birthday</option>
             <option>Anniversary</option>
             <option>No Occasion</option>
