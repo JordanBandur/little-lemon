@@ -7,7 +7,7 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const formRef = useRef(null);
-  const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+  const today = new Date().toISOString().split('T')[0];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
     <div className="reservation-page">
       <h2>Reserve a Table</h2>
       {Object.keys(errors).length > 0 && (
-        <div className="error-section" role="alert" aria-live="assertive">
+        <div className="error-section">
           <ul>
             {Object.entries(errors).map(([field, error], index) => (
               <li key={index}>{error}</li>
@@ -54,24 +54,25 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
         </div>
       )}
       <form onSubmit={handleSubmit} noValidate ref={formRef}>
-        <label htmlFor="name">
+        <label>
           Name:
           <input
             type="text"
-            id="name"
             name="name"
             required
             className={errors.name ? 'invalid' : ''}
+            title="Please enter your full name."
           />
         </label>
-        <label htmlFor="email">
+        <label>
           Email:
           <input
             type="email"
-            id="email"
             name="email"
             required
             className={errors.email ? 'invalid' : ''}
+            pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+            title="Please enter a valid email address."
           />
         </label>
         <label>
@@ -81,27 +82,29 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
             name="phone"
             required
             className={errors.phone ? 'invalid' : ''}
+            pattern="\d{10}"
+            title="Please enter a valid phone number (10 digits)."
           />
         </label>
-        <label htmlFor="date">
+        <label>
           Date:
           <input
             type="date"
-            id="date"
             name="date"
             min={today}
             required
             onChange={handleDateChange}
             className={errors.date ? 'invalid' : ''}
+            title="Please select a date for your reservation."
           />
         </label>
-        <label htmlFor="time">
+        <label>
           Time:
           <select
-            id="time"
             name="time"
             required
             className={errors.time ? 'invalid' : ''}
+            title="Please select a time for your reservation."
           >
             <option value="">Select a time</option>
             {Array.isArray(availableTimes) && availableTimes.map((time, index) => (
@@ -109,24 +112,24 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
             ))}
           </select>
         </label>
-        <label htmlFor="guests">
+        <label>
           Number of Guests:
           <input
             type="number"
-            id="guests"
             name="guests"
             min="1"
             required
             className={errors.guests ? 'invalid' : ''}
+            title="Please enter the number of guests (at least 1)."
           />
         </label>
-        <label htmlFor="occasion">
+        <label>
           Occasion:
           <select
-            id="ocassion"
             name="occasion"
             required
             className={errors.occasion ? 'invalid' : ''}
+            title="Please select the occasion for your reservation."
           >
             <option value="">Select an occasion</option>
             <option>Birthday</option>
