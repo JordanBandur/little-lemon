@@ -18,7 +18,7 @@ const Hero = () => {
         <button className="button secondary" onClick={handleReserveClick}>Reserve a Table</button>
       </section>
       <figure className="hero-image">
-        <img src="images/restaurant-food.jpg" alt="Mediterranean food" />
+        <img src="images/restaurant-food.jpg" alt="Delicious Mediterranean food at Little Lemon" />
       </figure>
     </section>
   );
