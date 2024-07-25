@@ -2,7 +2,6 @@ import React from 'react';
 import '../assets/styles/Testimonials.scss';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import deliveryIcon from '../assets/delivery-logo.svg';
 
 const getRandomRating = () => Math.floor(3 + Math.random() * 3);
 
@@ -47,22 +46,22 @@ const reviews = [
 
 const Testimonials = () => {
   return (
-    <section className="testimonials">
-      <h2>Testimonials</h2>
+    <section className="testimonials" aria-labelledby="testimonial-heading">
+      <h2 id="testimonial-heading">Testimonials</h2>
       <div className="testimonial-cards">
         <Carousel showThumbs={false} showStatus={false} infiniteLoop useKeyboardArrows autoPlay>
           {reviews.map((review, index) => (
-            <article className="testimonial-card" key={index}>
-              <div className="rating">
+            <article className="testimonial-card" key={index} aria-label={`Testimonial from ${review.name}`}>
+              <div className="rating" aria-label={`Rating: ${review.rating} out of 5`}>
                 {Array.from({ length: review.rating }).map((_, i) => (
-                  <span key={i} className="star">★</span>
+                  <span key={i} className="star" aria-hidden="true">★</span>
                 ))}
                 {Array.from({ length: 5 - review.rating }).map((_, i) => (
-                  <span key={i} className="star empty">☆</span>
+                  <span key={i} className="star empty" aria-hidden="true">☆</span>
                 ))}
               </div>
               <div className="user-info">
-                <img src={review.photo} alt={review.name} className="user-photo" />
+                <img src={review.photo} alt={`Photo of ${review.name}`} className="user-photo" />
                 <h3>{review.name}</h3>
               </div>
               <p>{review.text}</p>
