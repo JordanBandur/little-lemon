@@ -3,7 +3,7 @@ import '../assets/styles/About.scss';
 
 const About = () => {
   return (
-    <section className="about">
+    <main className="about">
       <div className="about-text">
         <h1>Little Lemon</h1>
         <h2>Chicago</h2>
@@ -12,10 +12,10 @@ const About = () => {
         </p>
       </div>
       <div className="about-images">
-        <img src="/images/mario-and-adrian-a.jpg" alt="Mario and Adrian A" className="image1" />
-        <img src="/images/mario-and-adrian-b.jpg" alt="Mario and Adrian B" className="image2" />
+        <img src="/images/mario-and-adrian-a.jpg" alt="Mario and Adrian in the restaurant" className="image1" />
+        <img src="/images/mario-and-adrian-b.jpg" alt="Mario and Adrian preparing food" className="image2" />
       </div>
-    </section>
+    </main>
   );
 };
 
