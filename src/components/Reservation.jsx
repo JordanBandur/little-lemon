@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import '../assets/styles/Reservation.scss';
 import { submitAPI } from '../api';
+import { handleFormValidation } from '../hooks/validation';
 
 const ReservationPage = ({ availableTimes, onDateChange }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -8,15 +9,14 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
   const formRef = useRef(null);
   const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phonePattern = /^\+?\d{10,13}$/;
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
 
-    if (!form.checkValidity() || !customValidation(form)) {
-      handleFormValidation(form);
+    const newErrors = handleFormValidation(form);
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
@@ -34,51 +34,6 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
       setIsSubmitting(false);
       alert('Failed to submit reservation.');
     }
-  };
-
-  const customValidation = (form) => {
-    const newErrors = {};
-
-    if (!emailPattern.test(form.email.value)) {
-      newErrors.email = 'Please enter a valid email address.';
-    }
-    if (!phonePattern.test(form.phone.value)) {
-      newErrors.phone = 'Please enter a valid phone number.';
-    }
-    if (form.guests.value <= 0) {
-      newErrors.guests = 'Number of guests should be greater than 0.';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleFormValidation = (form) => {
-    const newErrors = {};
-
-    if (!form.name.validity.valid) {
-      newErrors.name = 'Please enter your name.';
-    }
-    if (!form.email.validity.valid) {
-      newErrors.email = 'Please enter a valid email address.';
-    }
-    if (!form.phone.validity.valid) {
-      newErrors.phone = 'Please enter a valid phone number.';
-    }
-    if (!form.date.validity.valid) {
-      newErrors.date = 'Please select a valid date.';
-    }
-    if (!form.time.validity.valid) {
-      newErrors.time = 'Please select a valid time.';
-    }
-    if (!form.guests.validity.valid) {
-      newErrors.guests = 'Please enter a valid number of guests.';
-    }
-    if (!form.occasion.validity.valid) {
-      newErrors.occasion = 'Please select an occasion.';
-    }
-
-    setErrors(newErrors);
   };
 
   const handleDateChange = (e) => {
@@ -114,7 +69,6 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
             type="email"
             name="email"
             required
-            pattern={emailPattern.source}
             className={errors.email ? 'invalid' : ''}
           />
         </label>
@@ -124,7 +78,6 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
             type="tel"
             name="phone"
             required
-            pattern={phonePattern.source}
             className={errors.phone ? 'invalid' : ''}
           />
         </label>
