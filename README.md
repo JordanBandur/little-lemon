@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+# Little Lemon Restaurant
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Little Lemon Restaurant web application. This project is a reservation system for a Mediterranean restaurant, allowing users to book tables online easily and efficiently. The application is built with React and incorporates features such as form validation, dynamic reservation times, and accessibility improvements.
 
-## Available Scripts
+## Screenshots
 
-In the project directory, you can run:
+### Main Page
+![Main Page](https://github.com/JordanBandur/little-lemon/blob/master/public/screenshots/main-1.png)
 
-### `npm start`
+### Specials
+![Specials](https://github.com/JordanBandur/little-lemon/blob/master/public/screenshots/specials.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Testimonials
+![Testimonials](https://github.com/JordanBandur/little-lemon/blob/master/public/screenshots/testimonials.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### About Page
+![About Page](https://github.com/JordanBandur/little-lemon/blob/master/public/screenshots/about.png)
 
-### `npm test`
+### Footer
+![Footer](https://github.com/JordanBandur/little-lemon/blob/master/public/screenshots/footer.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Reservation 1
+![Reservation 1](https://github.com/JordanBandur/little-lemon/blob/master/public/screenshots/reserve1.png)
 
-### `npm run build`
+### Reservation 2
+![Reservation 2](https://github.com/JordanBandur/little-lemon/blob/master/public/screenshots/reserve2.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Reservation Error
+![Reservation Error](https://github.com/JordanBandur/little-lemon/blob/master/public/screenshots/reserve-error.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Mobile View 1
+![Mobile View 1](https://github.com/JordanBandur/little-lemon/blob/master/public/screenshots/mobile1.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Mobile View 2
+![Mobile View 2](https://github.com/JordanBandur/little-lemon/blob/master/public/screenshots/mobile2.png)
 
-### `npm run eject`
+## Table of Contents
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies](#technologies)
+- [Testing](#testing)
+- [License](#license)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Dynamic Reservation Times**: Fetches available reservation times based on the selected date.
+- **Form Validation**: Implements both HTML5 and custom JavaScript validation for form inputs.
+- **Accessibility**: Enhances accessibility using ARIA attributes and proper semantic HTML.
+- **Responsive Design**: Ensures a good user experience across various devices and screen sizes.
+- **Error Handling**: Provides user-friendly error messages for form validation issues.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Installation
 
-## Learn More
+To get started with the project, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    git clone https://github.com/yourusername/little-lemon-restaurant.git
+    ```
 
-### Code Splitting
+2. Navigate to the project directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```bash
+    cd little-lemon-restaurant
+    ```
 
-### Analyzing the Bundle Size
+3. Install the dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    ```bash
+    npm install
+    ```
 
-### Making a Progressive Web App
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+To run the application locally:
 
-### Advanced Configuration
+1. Start the development server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    ```bash
+    npm start
+    ```
 
-### Deployment
+2. Open your browser and visit:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    ```arduino
+    http://localhost:3000
+    ```
 
-### `npm run build` fails to minify
+## Technologies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **React**: A JavaScript library for building user interfaces.
+- **React Router**: For handling routing within the application.
+- **SCSS**: For styling the components.
+- **React Testing Library**: For testing React components.
+- **Jest**: JavaScript testing framework.
+
+## Testing
+
+The project includes unit tests to ensure the functionality of the application. To run the tests, use the following command:
+
+```bash
+npm test
+```
+
+## Tests
+
+The tests cover:
+
+- HTML5 validation attributes.
+- JavaScript validation functions.
+- Dynamic reservation time fetching.
+- Component rendering and functionality.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
