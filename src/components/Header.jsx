@@ -12,10 +12,16 @@ function Header() {
   return (
     <header>
       <div className="header-nav">
-        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+        <button
+          className="menu-toggle"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          aria-controls="navigation-menu"
+        >
           &#9776;
         </button>
-        <Nav className={isOpen ? 'open' : ''} />
+        <Nav className={isOpen ? 'open' : ''} id="navigation-menu" />
       </div>
     </header>
   );
