@@ -45,7 +45,7 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
     <div className="reservation-page">
       <h2>Reserve a Table</h2>
       {Object.keys(errors).length > 0 && (
-        <div className="error-section">
+        <div className="error-section" role="alert" aria-live="assertive">
           <ul>
             {Object.entries(errors).map(([field, error], index) => (
               <li key={index}>{error}</li>
@@ -54,19 +54,21 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
         </div>
       )}
       <form onSubmit={handleSubmit} noValidate ref={formRef}>
-        <label>
+        <label htmlFor="name">
           Name:
           <input
             type="text"
+            id="name"
             name="name"
             required
             className={errors.name ? 'invalid' : ''}
           />
         </label>
-        <label>
+        <label htmlFor="email">
           Email:
           <input
             type="email"
+            id="email"
             name="email"
             required
             className={errors.email ? 'invalid' : ''}
@@ -81,10 +83,11 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
             className={errors.phone ? 'invalid' : ''}
           />
         </label>
-        <label>
+        <label htmlFor="date">
           Date:
           <input
             type="date"
+            id="date"
             name="date"
             min={today}
             required
@@ -92,9 +95,10 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
             className={errors.date ? 'invalid' : ''}
           />
         </label>
-        <label>
+        <label htmlFor="time">
           Time:
           <select
+            id="time"
             name="time"
             required
             className={errors.time ? 'invalid' : ''}
@@ -105,19 +109,21 @@ const ReservationPage = ({ availableTimes, onDateChange }) => {
             ))}
           </select>
         </label>
-        <label>
+        <label htmlFor="guests">
           Number of Guests:
           <input
             type="number"
+            id="guests"
             name="guests"
             min="1"
             required
             className={errors.guests ? 'invalid' : ''}
           />
         </label>
-        <label>
+        <label htmlFor="occasion">
           Occasion:
           <select
+            id="ocassion"
             name="occasion"
             required
             className={errors.occasion ? 'invalid' : ''}
