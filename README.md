@@ -70,7 +70,7 @@ To get started with the project, follow these steps:
 3. Install the dependencies:
 
     ```bash
-    npm install
+    pnpm install
     ```
 
 ## Usage
@@ -80,7 +80,7 @@ To run the application locally:
 1. Start the development server:
 
     ```bash
-    npm start
+    pnpm start
     ```
 
 2. Open your browser and visit:
@@ -102,7 +102,7 @@ To run the application locally:
 The project includes unit tests to ensure the functionality of the application. To run the tests, use the following command:
 
 ```bash
-npm test
+pnpm test
 ```
 
 ## Tests
