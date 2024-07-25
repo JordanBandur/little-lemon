@@ -2,23 +2,43 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ReservationPage from '../Reservation';
 
-// Mock props
-const availableTimes = [
-  '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM',
-  '05:00 PM', '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM'
-];
-const dispatch = jest.fn();
+const availableTimes = ['12:00 PM', '1:00 PM'];
 
-describe('ReservationPage', () => {
-  test('renders static text', () => {
-    render(<ReservationPage availableTimes={availableTimes} dispatch={dispatch} />);
-    const headingElement = screen.getByText(/Reserve a Table/i);
-    expect(headingElement).toBeInTheDocument();
-  });
+test('renders ReservationPage with HTML5 validation attributes', () => {
+  render(<ReservationPage availableTimes={availableTimes} onDateChange={() => { }} />);
 
-  test('renders date input', () => {
-    render(<ReservationPage availableTimes={availableTimes} dispatch={dispatch} />);
-    const dateInput = screen.getByLabelText(/Date/i);
-    expect(dateInput).toBeInTheDocument();
-  });
+  // Validate name input attributes
+  const nameInput = screen.getByLabelText(/Name:/i);
+  expect(nameInput).toHaveAttribute('type', 'text');
+  expect(nameInput).toBeRequired();
+
+  // Validate email input attributes
+  const emailInput = screen.getByLabelText(/Email:/i);
+  expect(emailInput).toHaveAttribute('type', 'email');
+  expect(emailInput).toBeRequired();
+
+  // Validate phone input attributes
+  const phoneInput = screen.getByLabelText(/Phone Number:/i);
+  expect(phoneInput).toHaveAttribute('type', 'tel');
+  expect(phoneInput).toBeRequired();
+
+  // Validate date input attributes
+  const dateInput = screen.getByLabelText(/Date:/i);
+  expect(dateInput).toHaveAttribute('type', 'date');
+  expect(dateInput).toBeRequired();
+  expect(dateInput).toHaveAttribute('min', new Date().toISOString().split('T')[0]);
+
+  // Validate time select attributes
+  const timeSelect = screen.getByLabelText(/Time:/i);
+  expect(timeSelect).toBeRequired();
+
+  // Validate guests input attributes
+  const guestsInput = screen.getByLabelText(/Number of Guests:/i);
+  expect(guestsInput).toHaveAttribute('type', 'number');
+  expect(guestsInput).toBeRequired();
+  expect(guestsInput).toHaveAttribute('min', '1');
+
+  // Validate occasion select attributes
+  const occasionSelect = screen.getByLabelText(/Occasion:/i);
+  expect(occasionSelect).toBeRequired();
 });
